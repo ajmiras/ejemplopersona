@@ -16,9 +16,6 @@ namespace EjemploPersona
         Persona javier = new Persona(2.0, 95.0);
         Persona luis = new Persona(1.5, 57.0);
 
-        
-        Atleta pedro = new Atleta(2.15, 105.0, 19.0);
-
         public FPrincipal()
         {
             InitializeComponent();
@@ -229,21 +226,4 @@ namespace EjemploPersona
             setPeso(ps);
         }
     }
-
-    public class Atleta : Persona
-    {
-        private double marca = 0.0;
-
-        public Atleta(double altura, double peso, double marca) : base(altura, peso)
-        {
-            this.marca = marca;
-        }
-
-        public double Marca
-        {
-            get => marca;
-            set => marca = value;
-        }
-    }
-
 }
