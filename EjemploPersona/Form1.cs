@@ -23,110 +23,70 @@ namespace EjemploPersona
 
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            bool error = false;
-
             // Limpiamos el errorProvider
             errorProvider.Clear();
 
             // Miramos a ver qué persona está seleccionada en el ComboBox
             switch (cbPersona.SelectedIndex)
             {
-                // Javier
-                case 0 : 
-                    // Si no es correcta la altura
-                    if (!javier.setAltura(txtAltura.Text))
-                    {
-                        // Mensaje de error, asignamos errorPovider al TextBox altura y le damos el foco.
-                        errorProvider.SetError(txtAltura, "La altura es incorrecta.");
-                        txtAltura.Focus();
-                        error = true;
-                    }
-
-                    try
-                    {
-                        javier.setPeso(txtPeso.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Si se produce una excepción, mensaje de error, asignamos errorPovider al TextBox altura y 
-                        // le damos el foco si previamente no se lo hemos dado a la altura.
-                        errorProvider.SetError(txtPeso, ex.Message);
-
-                        if (!error)
-                        {
-                            txtPeso.Focus();
-                            error = true;
-                        }
-                    }
+                case 0 :
+                    Procesar(javier);
                     break;
 
-                // Jose
                 case 1:
-                    // Si no es correcta la altura
-                    if (!jose.setAltura(txtAltura.Text))
-                    {
-                        // Mensaje de error, asignamos errorPovider al TextBox altura y le damos el foco.
-                        errorProvider.SetError(txtAltura, "La altura es incorrecta.");
-                        txtAltura.Focus();
-                        error = true;
-                    }
-
-                    try
-                    {
-                        jose.setPeso(txtPeso.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Si se produce una excepción, mensaje de error, asignamos errorPovider al TextBox altura y 
-                        // le damos el foco si previamente no se lo hemos dado a la altura.
-                        errorProvider.SetError(txtPeso, ex.Message);
-
-                        if (!error)
-                        {
-                            txtPeso.Focus();
-                            error = true;
-                        }
-                    }
-
+                    Procesar(jose);
                     break;
 
-                // Luís
-                case 2 :
-                    // Si no es correcta la altura
-                    if (!luis.setAltura(txtAltura.Text))
-                    {
-                        // Mensaje de error, asignamos errorPovider al TextBox altura y le damos el foco.
-                        errorProvider.SetError(txtAltura, "La altura es incorrecta.");
-                        txtAltura.Focus();
-                        error = true;
-                    }
-
-                    try
-                    {
-                        luis.setPeso(txtPeso.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Si se produce una excepción, mensaje de error, asignamos errorPovider al TextBox altura y 
-                        // le damos el foco si previamente no se lo hemos dado a la altura.
-                        errorProvider.SetError(txtPeso, ex.Message);
-
-                        if (!error)
-                        {
-                            txtPeso.Focus();
-                            error = true;
-                        }
-                    }
+                case 2 : 
+                    Procesar(luis);
                     break;
             }
+        }
 
+        private void Procesar(Persona persona)
+        {
+            // De entrada no hay error.
+            bool error = false;
+
+            // Si la altura no es correcta.
+            if (!persona.setAltura(txtAltura.Text))
+            {
+                // Asignamos errorPovider al TextBox altura, le damos el foco al TextBox altura
+                // e indicamos que hay un error.
+                errorProvider.SetError(txtAltura, "La altura es incorrecta.");
+                txtAltura.Focus();
+                error = true;
+            }
+
+            try
+            {
+                persona.setPeso(txtPeso.Text);
+            }
+            catch (Exception ex)
+            {
+                // Si se produce una excepción, asignamos errorPovider al TextBox peso, 
+                // le damos el foco, si previamente no se lo hemos dado a la altura, e
+                // indicamos que hay un error.
+                errorProvider.SetError(txtPeso, ex.Message);
+
+                if (!error)
+                {
+                    txtPeso.Focus();
+                    error = true;
+                }
+            }
+
+            // En principio asumimos que todo es correcto.
             String msg = "¡Todo correcto!";
 
+            // Si se produjo un error, cambiamos el mensaje.
             if (error)
                 msg = "Revise los errores.";
-            
+
+            // Mostramos el mensaje.
             MessageBox.Show(msg);
         }
+
 
         private void FPrincipal_Load(object sender, EventArgs e)
         {
