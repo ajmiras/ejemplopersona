@@ -38,20 +38,21 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblPersona = new System.Windows.Forms.Label();
+            this.btnPedro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAltura
             // 
-            this.txtAltura.Location = new System.Drawing.Point(171, 55);
+            this.txtAltura.Location = new System.Drawing.Point(81, 51);
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(100, 20);
             this.txtAltura.TabIndex = 0;
             // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(171, 92);
+            this.txtPeso.Location = new System.Drawing.Point(81, 77);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(100, 20);
             this.txtPeso.TabIndex = 1;
@@ -59,7 +60,7 @@
             // lblAltura
             // 
             this.lblAltura.AutoSize = true;
-            this.lblAltura.Location = new System.Drawing.Point(131, 58);
+            this.lblAltura.Location = new System.Drawing.Point(29, 54);
             this.lblAltura.Name = "lblAltura";
             this.lblAltura.Size = new System.Drawing.Size(34, 13);
             this.lblAltura.TabIndex = 2;
@@ -68,7 +69,7 @@
             // lblPeso
             // 
             this.lblPeso.AutoSize = true;
-            this.lblPeso.Location = new System.Drawing.Point(131, 95);
+            this.lblPeso.Location = new System.Drawing.Point(29, 80);
             this.lblPeso.Name = "lblPeso";
             this.lblPeso.Size = new System.Drawing.Size(31, 13);
             this.lblPeso.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // btnProcesar
             // 
-            this.btnProcesar.Location = new System.Drawing.Point(171, 137);
+            this.btnProcesar.Location = new System.Drawing.Point(81, 103);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(75, 23);
             this.btnProcesar.TabIndex = 4;
@@ -91,7 +92,7 @@
             "Javier",
             "Jose",
             "Luís"});
-            this.cbPersona.Location = new System.Drawing.Point(384, 54);
+            this.cbPersona.Location = new System.Drawing.Point(81, 24);
             this.cbPersona.Name = "cbPersona";
             this.cbPersona.Size = new System.Drawing.Size(121, 21);
             this.cbPersona.TabIndex = 5;
@@ -108,17 +109,28 @@
             // lblPersona
             // 
             this.lblPersona.AutoSize = true;
-            this.lblPersona.Location = new System.Drawing.Point(332, 58);
+            this.lblPersona.Location = new System.Drawing.Point(29, 27);
             this.lblPersona.Name = "lblPersona";
             this.lblPersona.Size = new System.Drawing.Size(46, 13);
             this.lblPersona.TabIndex = 6;
             this.lblPersona.Text = "Persona";
             // 
+            // btnPedro
+            // 
+            this.btnPedro.Location = new System.Drawing.Point(81, 196);
+            this.btnPedro.Name = "btnPedro";
+            this.btnPedro.Size = new System.Drawing.Size(75, 23);
+            this.btnPedro.TabIndex = 7;
+            this.btnPedro.Text = "Pedro";
+            this.btnPedro.UseVisualStyleBackColor = true;
+            this.btnPedro.Click += new System.EventHandler(this.btnPedro_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 319);
+            this.ClientSize = new System.Drawing.Size(250, 248);
+            this.Controls.Add(this.btnPedro);
             this.Controls.Add(this.lblPersona);
             this.Controls.Add(this.cbPersona);
             this.Controls.Add(this.btnProcesar);
@@ -147,6 +159,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label lblPersona;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnPedro;
     }
 }
 
