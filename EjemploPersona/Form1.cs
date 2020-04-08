@@ -72,6 +72,8 @@ namespace EjemploPersona
                 // indicamos que hay un error.
                 errorProvider.SetError(txtPeso, ex.Message);
 
+                // Esto lo hacemos porque, si hay un error anterior, es ese error el que tiene
+                // que quedarse con el foco.
                 if (!error)
                 {
                     txtPeso.Focus();
@@ -79,12 +81,9 @@ namespace EjemploPersona
                 }
             }
 
-            // En principio asumimos que todo es correcto.
-            String msg = "¡Todo correcto!";
-
-            // Si se produjo un error, cambiamos el mensaje.
-            if (error)
-                msg = "Revise los errores.";
+            // Fijaros como hemos puesto el mensaje utilizando el operador ternario.
+            // Este operador es muy util en estas situaciones.
+            String msg = (error ? "Revise los errores." : "¡Todo correcto!");
 
             // Mostramos el mensaje.
             MessageBox.Show(msg);
