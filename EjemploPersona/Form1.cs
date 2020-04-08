@@ -129,6 +129,13 @@ namespace EjemploPersona
         }
     }
 
+    //------------------------------------------------------------
+    // Hasta aquí todo lo relacionado con la parte del formulario.
+    //------------------------------------------------------------
+
+    //------------------------------------------------------------
+    // A partir de aquí todo lo relacionado con la clase Persona.
+    //------------------------------------------------------------
     public class Persona
     {
         private double altura = 0.0;
@@ -188,20 +195,18 @@ namespace EjemploPersona
             if (altura == "")
                 return false;
 
-
             // Variable para intentar la conversión.
             double ps;
 
             try
             {
                 // Intento convertir la "altura"
-                // Aprovechamos el método setAltura.
                 ps = Convert.ToDouble(altura);
             }
             catch (Exception)
             {
-                // Si no se pudiese convertir "altura" a double capturamos la excepción
-                // y devolvemos error.
+                // Si no se pudiese convertir "altura" a double,
+                // capturamos la excepción y devolvemos error.
                 return false;
             }
 
@@ -222,7 +227,7 @@ namespace EjemploPersona
             if (peso < 0.1)
                 throw new Exception("Peso incorrecto. No puede ser menor de 100 gr.");
 
-            // En caso contrario asignamos el "peso"
+            // En caso contrario asignamos el "peso".
             // De nuevo observar el uso de la palabra reservada "this"
             this.peso = peso;
         }
@@ -254,16 +259,24 @@ namespace EjemploPersona
             setPeso(ps);
         }
     }
+    //------------------------------------------------------------
+    // Hasta aquí todo lo relacionado con la clase Persona.
+    //------------------------------------------------------------
 
+    //------------------------------------------------------------
+    // A partir de aquí todo lo relacionado con la clase Atleta.
+    //------------------------------------------------------------
     public class Atleta : Persona
     {
+        // Inicializamos a cero, por si utilizan el contructor por defecto.
         private double marca = 0.0;
 
         // Constructor de la clase.
-        // Observar que debemos llamar al contructor de la clase Persona.
-        // En este caso le pasamos, la altura y el peso.
+        // Observar que debemos llamar al contructor de la clase Persona, pasádole
+        // la altura y el peso.
         public Atleta(double altura, double peso, double marca) : base(altura, peso)
         {
+            // De nuevo observar el uso de la palabra reservada "this"
             this.marca = marca;
         }
 
@@ -289,9 +302,10 @@ namespace EjemploPersona
             return marca;
         }
 
-        // Damos valor a la propuiedad marca mediante setter
+        // Damos valor a la propiedad marca mediante setter
         public void setMarca(double marca)
         {
+            // De nuevo observar el uso de la palabra reservada "this"
             this.marca = marca;
         }
     }
